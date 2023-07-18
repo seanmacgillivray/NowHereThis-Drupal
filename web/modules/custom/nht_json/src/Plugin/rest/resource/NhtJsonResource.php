@@ -14,6 +14,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\file\Entity\File;
 
 /**
  * Represents Example records as resources.
@@ -119,6 +120,7 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
   private function buildJSON() {
     $subdomain = $this->configFactory->get('nht_json.settings')->get('customer_subdomain');
     $result = [];
+    $getID3 = new \getID3();
     $composers = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('composer');
     $clip_types = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('clip_type');
     foreach ($composers as $composer) {
@@ -128,8 +130,15 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
         if ($clips) {
             foreach ($clips as $clip) {
               $clip_object = $this->entityTypeManager->getStorage('media')->load($clip);
+              $video_media = $clip_object->get('field_media_hosted_video')->first();
+              $video_id = $video_media->getValue()['cloudflareStreamVideoID'];
+              $fid = $video_media->getValue()['target_id'];
+              $file = File::load($fid)->getFileUri();
+              $file_info = $getID3->analyze($file);
               $result[$composer->tid][$clip_type->name][$clip]['title'] = $clip_object->getName();
-              $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $clip_object->get('field_media_hosted_video')->first()->getValue()['cloudflareStreamVideoID'] . '/manifest/video.mpd';
+              $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $video_id . '/manifest/video.mpd';
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = $file_info['playtime_string'] ?: 0;
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = $file_info['playtime_seconds'] ?: 0;
             }
           }
       }
