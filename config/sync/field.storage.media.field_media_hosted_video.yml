@@ -1,0 +1,26 @@
+uuid: 98d9580b-d1c2-44a1-a68b-56b83278e367
+langcode: en
+status: true
+dependencies:
+  module:
+    - cloudflare_stream
+    - file
+    - media
+_core:
+  default_config_hash: ia6qOUA0tyL_4pPERM9vM2aC2tL0iXADZjIxTIuLiKg
+id: media.field_media_hosted_video
+field_name: field_media_hosted_video
+entity_type: media
+type: cloudflarevideo
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: cloudflare_stream
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

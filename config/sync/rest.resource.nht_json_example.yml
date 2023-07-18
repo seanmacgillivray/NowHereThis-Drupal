@@ -1,0 +1,18 @@
+uuid: ebd9c5ec-95e4-4f57-a562-e529aa1a6f26
+langcode: en
+status: true
+dependencies:
+  module:
+    - nht_json
+    - serialization
+    - user
+id: nht_json_example
+plugin_id: nht_json_example
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

@@ -1,0 +1,18 @@
+uuid: e3f87195-7dab-42b4-956d-336029431768
+langcode: en
+status: true
+dependencies:
+  module:
+    - cloudflare_stream_hosted_video
+_core:
+  default_config_hash: 2ZLp7IXRZ_IvnrFWVkf0GL99WX9spO9Fe5cOA2zW_-g
+id: hosted_video
+label: 'Hosted video'
+description: 'Cloudflare Stream videos'
+source: hosted_video
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_hosted_video
+field_map:
+  name: name

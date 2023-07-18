@@ -1,0 +1,29 @@
+uuid: 24091bd0-dc32-45da-8754-9c3c7f3f41ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_clip_type
+    - media.type.hosted_video
+    - taxonomy.vocabulary.clip_type
+id: media.hosted_video.field_clip_type
+field_name: field_clip_type
+entity_type: media
+bundle: hosted_video
+label: 'Clip Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      clip_type: clip_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

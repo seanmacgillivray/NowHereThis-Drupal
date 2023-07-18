@@ -1,0 +1,29 @@
+uuid: 98833b6e-e3e8-4773-9967-4e78db9952c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_composer
+    - media.type.hosted_video
+    - taxonomy.vocabulary.composer
+id: media.hosted_video.field_composer
+field_name: field_composer
+entity_type: media
+bundle: hosted_video
+label: Composer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      composer: composer
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: 988a09ed-db0e-4566-a630-1cc6dac876fa
+langcode: en
+status: true
+dependencies: {  }
+name: 'Clip Type'
+vid: clip_type
+description: ''
+weight: 0

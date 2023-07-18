@@ -1,0 +1,76 @@
+uuid: b6077602-a21f-48bc-8e1b-698e9f693752
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.hosted_video.field_clip_type
+    - field.field.media.hosted_video.field_composer
+    - field.field.media.hosted_video.field_media_hosted_video
+    - media.type.hosted_video
+  module:
+    - cloudflare_stream
+    - path
+_core:
+  default_config_hash: hBA4ID42wX8OjJ2acil9Xr8L8lOrM5bL_u1PdjmMiPU
+id: media.hosted_video.default
+targetEntityType: media
+bundle: hosted_video
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_clip_type:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_composer:
+    type: options_select
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_media_hosted_video:
+    type: cloudflarevideo_default
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

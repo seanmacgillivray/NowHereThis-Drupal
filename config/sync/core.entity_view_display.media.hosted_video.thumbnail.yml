@@ -1,0 +1,34 @@
+uuid: 19f817de-a493-40db-83e3-6098a78f4fa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.thumbnail
+    - field.field.media.hosted_video.field_clip_type
+    - field.field.media.hosted_video.field_composer
+    - field.field.media.hosted_video.field_media_hosted_video
+    - media.type.hosted_video
+  module:
+    - cloudflare_stream
+_core:
+  default_config_hash: lLcsftuJ7sCcTgbTk2-qfGNM1E7n6Lz3yXxJOjkLTtA
+id: media.hosted_video.thumbnail
+targetEntityType: media
+bundle: hosted_video
+mode: thumbnail
+content:
+  field_media_hosted_video:
+    type: cloudflarethumbnail_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_clip_type: true
+  field_composer: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true
