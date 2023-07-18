@@ -1,0 +1,6 @@
+nht_json.settings_form:
+  title: nht-json
+  description: Configure nht-json.
+  parent: system.admin_config_system
+  route_name: nht_json.settings_form
+  weight: 10

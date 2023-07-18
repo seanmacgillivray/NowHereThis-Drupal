@@ -1,0 +1,7 @@
+nht_json.settings_form:
+  path: '/admin/config/system/nht-json'
+  defaults:
+    _title: 'nht-json settings'
+    _form: 'Drupal\nht_json\Form\SettingsForm'
+  requirements:
+    _permission: 'administer nht_json configuration'
