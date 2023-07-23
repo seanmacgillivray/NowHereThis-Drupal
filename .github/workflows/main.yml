@@ -46,4 +46,4 @@ jobs:
     - name: Deploy Drupal config sync files with rsync
       run: "rsync -avzq config/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/config"
     - name: Deploy Drupal files with rsync
-      run: "rsync -avzq web/ --exclude=sites/default/files ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/public_html"
+      run: "rsync -avzq public_html/ --exclude=sites/default/files ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/public_html"
