@@ -35,6 +35,8 @@ jobs:
 #     - uses: nick-zh/composer@php7.4
     - name: Install dependencies
       uses: php-actions/composer@v6
+      with:
+        command: install --ignore-platform-reqs
 #     - name: Composer install
 # #       working-directory: ./
 #       run: cd ../../../../ | composer install
