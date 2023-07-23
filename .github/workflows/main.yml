@@ -35,7 +35,7 @@ jobs:
 #     - name: composer-php
       # You may pin to the exact commit or the version.
       # uses: nick-zh/composer@7d8fabe9f01d0d721a55e712b5fa83d35d584df1
-    - uses: nick-zh/composer@php7.4
+#     - uses: nick-zh/composer@php7.4
     - name: Composer install
       working-directory: ./
       run: composer install
