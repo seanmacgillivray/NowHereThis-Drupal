@@ -67,8 +67,8 @@ jobs:
       run: ssh-keyscan -H  ${{ secrets.NHT_DEPLOY_HOST_IP }}  >> ~/.ssh/known_hosts  
 #     # Rsync deploy
     - name: Deploy Composer dependencies with rsync
-      run: "rsync -avz vendor/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/vendor"
+      run: "rsync -avzq vendor/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/vendor"
     - name: Deploy Drupal config sync files with rsync
-      run: "rsync -avz config/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/config"
+      run: "rsync -avzq config/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/config"
     - name: Deploy Drupal files with rsync
-      run: "rsync -avz web/ --exclude-paths=files;working:js:css:php:styles:tmp:priv:google_tag:webform:documents ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/public_html"
+      run: "rsync -avzq web/ --exclude-paths=files;working:js:css:php:styles:tmp:priv:google_tag:webform:documents ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/public_html"
