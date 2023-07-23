@@ -11,7 +11,7 @@ prod:
   root: /home4/rtkmelmy/public_html
   uri: rtk.mel.mybluehost.me
   paths:
-    drush-script: '/var/www/html/vendor/drush/drush/drush'
+    drush-script: '/home4/rtkmelmy/vendor/drush/drush/drush'
   ssh:
     options: '-p 2222'
   command:
