@@ -1,0 +1,22 @@
+# Edit or remove this file as needed.
+# This file uses special Drush aliases for Azure CLI.
+# The name of the alias (eg. "dev") will be used as the Azure slot name;
+# Azure's SSH and rsync use a tunnel through a local (127.0.0.1) connection.
+# The machine name of the Docksal project will be used for the Azure project name.
+
+prod:
+  host: 162.241.217.51
+  os: Linux
+  user: rtkmelmy
+  root: /home4/rtkmelmy/public_html
+  uri: rtk.mel.mybluehost.me
+  paths:
+    drush-script: '/var/www/html/vendor/drush/drush/drush'
+  ssh:
+    options: '-p 2222'
+  command:
+    core:
+      rsync:
+        options:
+          mode: avP
+
