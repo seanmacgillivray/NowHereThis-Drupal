@@ -38,6 +38,11 @@
             "cweagans/composer-patches": true
         }
     },
+    "scripts": {
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ]
+    },
     "extra": {
         "enable-patching": true,
         "patches": {
@@ -46,28 +51,28 @@
             }
         },
         "installer-paths": {
-            "web/core": [
+            "public_html/core": [
                 "type:drupal-core"
             ],
-            "web/libraries/{$name}": [
+            "public_html/libraries/{$name}": [
                 "type:drupal-library"
             ],
-            "web/modules/contrib/{$name}": [
+            "public_html/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
-            "web/profiles/contrib/{$name}": [
+            "public_html/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "web/themes/contrib/{$name}": [
+            "public_html/themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
             "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ],
-            "web/modules/custom/{$name}": [
+            "public_html/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "web/themes/custom/{$name}": [
+            "public_html/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
         }
