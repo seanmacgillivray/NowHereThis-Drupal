@@ -1,4 +1,7 @@
 nht_json:
   js:
     /libraries/NowHereThis.js/dist/index.js: { attributes: { type: module } }
-
+  css:
+    theme:
+      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css': { type: external }
+      '/libraries/NowHereThis.js/public/index.css': {}
