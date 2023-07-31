@@ -1,0 +1,25 @@
+uuid: 7a786639-1d0e-442c-94cf-a0cb458c352c
+langcode: en
+status: true
+dependencies:
+  module:
+    - nht_json
+    - system
+  theme:
+    - olivero
+id: example
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: nht_json_example
+settings:
+  id: nht_json_example
+  label: Example
+  label_display: '0'
+  provider: nht_json
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
