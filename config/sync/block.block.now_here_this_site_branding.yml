@@ -1,0 +1,25 @@
+uuid: aad9d30e-9c7a-40ae-9769-84dbc1695dfd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: now_here_this_site_branding
+theme: now_here_this
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,31 @@
+footer {
+  max-width: 1400px;
+  margin: 0 auto;
+  nav > ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    a, a:visited {
+      color: #ffffff;
+      font-family: "Van", sans-serif;
+      font-weight: 700;
+      &.upstream-footer-link {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        font-size: 0;
+        &:after {
+          display: block;
+          content: '';
+          margin-left: 15px;
+          width: 300px;
+          height: 50px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-image: url('/themes/custom/now_here_this/img/logo--white.svg');
+        }
+      }
+    }
+  }
+}

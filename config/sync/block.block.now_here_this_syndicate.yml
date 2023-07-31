@@ -1,0 +1,23 @@
+uuid: 9dc725c9-6e01-42ed-9557-a46e0f2ee1d4
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: now_here_this_syndicate
+theme: now_here_this
+region: sidebar_first
+weight: 0
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

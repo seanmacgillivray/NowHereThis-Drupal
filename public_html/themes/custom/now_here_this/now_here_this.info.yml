@@ -1,0 +1,8 @@
+name: Now Here This
+type: theme
+description: 'Drupal theme for Now. Here. This.'
+base theme: stark
+core_version_requirement: ^9 || ^10
+starterkit: false
+libraries:
+  - now_here_this/global-styling

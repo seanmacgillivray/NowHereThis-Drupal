@@ -1,0 +1,22 @@
+uuid: 4d93fea3-f304-4b5c-a817-f11daca506f6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: now_here_this_primary_local_tasks
+theme: now_here_this
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

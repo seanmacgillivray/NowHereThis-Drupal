@@ -1,0 +1,23 @@
+uuid: 01550894-6c88-4a78-b56a-b19681847ed4
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - stark
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: stark_search_form_wide
+theme: stark
+region: secondary_menu
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

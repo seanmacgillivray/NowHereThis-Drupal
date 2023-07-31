@@ -1,0 +1,25 @@
+uuid: 4ed6e896-ef76-43bd-88f2-a0715b548d52
+langcode: en
+status: true
+dependencies:
+  module:
+    - nht_json
+    - system
+  theme:
+    - now_here_this
+id: now_here_this_example
+theme: now_here_this
+region: content
+weight: 0
+provider: null
+plugin: nht_json_example
+settings:
+  id: nht_json_example
+  label: Example
+  label_display: '0'
+  provider: nht_json
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

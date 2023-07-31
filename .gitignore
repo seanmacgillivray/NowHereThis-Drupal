@@ -24,3 +24,10 @@
 
 # Ignore databases
 *.sql
+
+# Ignore node_modules
+node_modules
+
+# Ignore compiled theme assets
+/public_html/themes/custom/now_here_this/css
+/public_html/themes/custom/now_here_this/js

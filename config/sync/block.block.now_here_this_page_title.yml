@@ -1,0 +1,20 @@
+uuid: 76759423-39dd-4de2-b7f3-e63875e2d249
+langcode: en
+status: false
+dependencies:
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: now_here_this_page_title
+theme: now_here_this
+region: sidebar_first
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

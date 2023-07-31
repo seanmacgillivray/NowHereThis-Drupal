@@ -1,0 +1,22 @@
+uuid: 9f18f245-4887-40a3-a78e-f8bbcb27b02e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: now_here_this_messages
+theme: now_here_this
+region: highlighted
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

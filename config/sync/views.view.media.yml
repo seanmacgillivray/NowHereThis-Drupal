@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
+    - taxonomy.vocabulary.clip_type
+    - taxonomy.vocabulary.composer
   module:
     - image
     - media
+    - taxonomy
     - user
 _core:
   default_config_hash: diywn6VdMoQOlDA-xslKdKrDko3SsTKfaK3WBG45UAg
@@ -750,35 +753,34 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        langcode:
-          id: langcode
-          table: media_field_data
-          field: langcode
+        field_composer_target_id:
+          id: field_composer_target_id
+          table: media__field_composer
+          field: field_composer_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
-          operator: in
+          plugin_id: taxonomy_index_tid
+          operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: langcode_op
-            label: Language
+            operator_id: field_composer_target_id_op
+            label: Composer
             description: ''
             use_operator: false
-            operator: langcode_op
+            operator: field_composer_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: langcode
+            identifier: field_composer_target_id
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              content_editor: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -793,6 +795,60 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          reduce_duplicates: false
+          vid: composer
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_clip_type_target_id:
+          id: field_clip_type_target_id
+          table: media__field_clip_type
+          field: field_clip_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_clip_type_target_id_op
+            label: 'Clip Type'
+            description: ''
+            use_operator: false
+            operator: field_clip_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_clip_type_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: clip_type
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       style:
         type: table
         options:

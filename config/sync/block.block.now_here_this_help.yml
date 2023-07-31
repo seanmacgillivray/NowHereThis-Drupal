@@ -1,0 +1,22 @@
+uuid: ee51aab6-27ed-4166-bdb0-a3c5dab2a4d6
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: now_here_this_help
+theme: now_here_this
+region: sidebar_first
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

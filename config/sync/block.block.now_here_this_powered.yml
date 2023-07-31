@@ -1,0 +1,22 @@
+uuid: 8d55ae6c-559b-4139-8e0c-e577dc903d20
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: now_here_this_powered
+theme: now_here_this
+region: sidebar_first
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

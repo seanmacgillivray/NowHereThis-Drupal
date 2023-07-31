@@ -1,0 +1,22 @@
+uuid: aceca300-7932-4992-bcda-d66be1c3d0d1
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: now_here_this_breadcrumbs
+theme: now_here_this
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

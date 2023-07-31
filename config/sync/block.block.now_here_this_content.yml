@@ -1,0 +1,22 @@
+uuid: bce19917-1697-46c9-966f-3e275369b8ab
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - now_here_this
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: now_here_this_content
+theme: now_here_this
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

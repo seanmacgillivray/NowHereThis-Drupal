@@ -1,0 +1,25 @@
+uuid: 73180105-dd50-4d8c-a64f-9e01982829b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - nht_json
+    - system
+  theme:
+    - stark
+id: stark_example
+theme: stark
+region: content
+weight: 0
+provider: null
+plugin: nht_json_example
+settings:
+  id: nht_json_example
+  label: Example
+  label_display: '0'
+  provider: nht_json
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
