@@ -137,8 +137,8 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
               $file_info = $getID3->analyze($file);
               $result[$composer->tid][$clip_type->name][$clip]['title'] = $clip_object->getName();
               $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $video_id . '/manifest/video.mpd';
-              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = $file_info['playtime_string'] ?: 0;
-              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = $file_info['playtime_seconds'] ?: 0;
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = isset($file_info['playtime_string']) ? $file_info['playtime_string'] : 0;
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = isset($file_info['playtime_seconds']) ? $file_info['playtime_seconds'] : 0;
             }
           }
       }

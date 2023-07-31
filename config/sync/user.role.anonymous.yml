@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - rest.resource.nht_json_example
   module:
     - comment
     - contact
     - filter
     - media
+    - rest
     - search
     - system
 _core:
@@ -21,6 +23,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get nht_json_example'
   - 'search content'
   - 'use text format restricted_html'
   - 'view media'

@@ -9,7 +9,7 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "nht_json_example",
- *   admin_label = @Translation("Example"),
+ *   admin_label = @Translation("NHT JS App"),
  *   category = @Translation("nht-json")
  * )
  */
@@ -20,7 +20,14 @@ class NhtJsonBlock extends BlockBase {
    */
   public function build() {
     $build['content'] = [
-      '#markup' => $this->t('It works!'),
+      '#attached' => [
+        'library' => [
+          'nht_json/nht_json'
+        ]
+      ],
+      '#markup' => '<div id="appWrapper"></div>
+
+    <script type="module" src="/dist/index.js"></script>',
     ];
     return $build;
   }

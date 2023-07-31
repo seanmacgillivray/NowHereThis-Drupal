@@ -1,0 +1,4 @@
+nht_json:
+  js:
+    /libraries/NowHereThis.js/dist/index.js: { attributes: { type: module } }
+
