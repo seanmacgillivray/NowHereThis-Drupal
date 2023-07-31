@@ -43,6 +43,8 @@ jobs:
 #     # Rsync deploy
     - name: Deploy Composer dependencies with rsync
       run: "rsync -avzq vendor/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/vendor"
+    - name: Deploy composer.json
+      run: "rsync -avzq composer.json ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/"
     - name: Deploy Drupal config sync files with rsync
       run: "rsync -avzq config/ ${{ secrets.NHT_DEPLOY_USER }}@${{ secrets.NHT_DEPLOY_HOST_IP }}:/home4/rtkmelmy/config"
     - name: Deploy Drupal files with rsync
