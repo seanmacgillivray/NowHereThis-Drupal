@@ -8,3 +8,39 @@
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
  */
+
+/**
+ * Clears the JSON feed cache when Hosted Videos are saved.
+ *
+ * @param $entity
+ * @return void
+ */
+function nht_json_media_update($entity) {
+  if ($entity->bundle() === 'hosted_video') {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['nht-json-feed']);
+  }
+}
+
+/**
+ * Clears the JSON feed cache when Hosted Videos are deleted.
+ *
+ * @param $entity
+ * @return void
+ */
+function nht_json_media_delete($entity) {
+  if ($entity->bundle() === 'hosted_video') {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['nht-json-feed']);
+  }
+}
+
+/**
+ * Clears the JSON feed cache when Hosted Videos are created.
+ *
+ * @param $entity
+ * @return void
+ */
+function nht_json_media_create($entity) {
+  if ($entity->bundle() === 'hosted_video') {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['nht-json-feed']);
+  }
+}

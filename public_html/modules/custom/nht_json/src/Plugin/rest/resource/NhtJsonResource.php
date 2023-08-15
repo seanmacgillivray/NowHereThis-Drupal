@@ -15,6 +15,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\Entity\File;
+use Drupal\Core\Cache\CacheableMetadata;
 
 /**
  * Represents Example records as resources.
@@ -114,7 +115,15 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
    */
   public function get() {
     $result = $this->buildJSON();
-    return new ResourceResponse(json_encode($result));
+    $response = new ResourceResponse(json_encode($result));
+    $response->addCacheableDependency(CacheableMetadata::createFromRenderArray([
+      '#cache' => [
+        'tags' => [
+          'nht-json-feed',
+        ],
+      ],
+    ]));
+    return $response;
   }
 
   private function buildJSON() {
