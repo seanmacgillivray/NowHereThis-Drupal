@@ -141,13 +141,13 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
               $clip_object = $this->entityTypeManager->getStorage('media')->load($clip);
               $video_media = $clip_object->get('field_media_hosted_video')->first();
               $video_id = $video_media->getValue()['cloudflareStreamVideoID'];
-              $fid = $video_media->getValue()['target_id'];
-              $file = File::load($fid)->getFileUri();
-              $file_info = $getID3->analyze($file);
+//              $fid = $video_media->getValue()['target_id'];
+//              $file = File::load($fid)->getFileUri();
+//              $file_info = $getID3->analyze($file);
               $result[$composer->tid][$clip_type->name][$clip]['title'] = $clip_object->getName();
               $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $video_id . '/manifest/video.mpd';
-              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = isset($file_info['playtime_string']) ? $file_info['playtime_string'] : 0;
-              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = isset($file_info['playtime_seconds']) ? $file_info['playtime_seconds'] : 0;
+//              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = isset($file_info['playtime_string']) ? $file_info['playtime_string'] : 0;
+//              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = isset($file_info['playtime_seconds']) ? $file_info['playtime_seconds'] : 0;
             }
           }
       }
