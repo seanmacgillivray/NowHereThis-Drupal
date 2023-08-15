@@ -9,7 +9,57 @@ dependencies:
     - media.type.hosted_video
   module:
     - cloudflare_stream
+    - field_group
     - path
+third_party_settings:
+  field_group:
+    group_hosted_video:
+      children:
+        - group_media
+        - group_properties
+      label: 'Hosted Video'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_media:
+      children:
+        - name
+        - field_media_hosted_video
+      label: Media
+      region: content
+      parent_name: group_hosted_video
+      weight: 9
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_properties:
+      children:
+        - field_clip_type
+        - field_composer
+      label: Properties
+      region: content
+      parent_name: group_hosted_video
+      weight: 10
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: hBA4ID42wX8OjJ2acil9Xr8L8lOrM5bL_u1PdjmMiPU
 id: media.hosted_video.default
@@ -19,19 +69,19 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_clip_type:
     type: options_select
-    weight: 26
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_composer:
     type: options_select
-    weight: 27
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -52,20 +102,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS

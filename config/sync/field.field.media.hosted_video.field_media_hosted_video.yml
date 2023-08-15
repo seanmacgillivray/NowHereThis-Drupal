@@ -20,9 +20,9 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_extensions: 'mp4 mkv mov avi flv ts tsv tsa mpg mpeg m2p ps mxf lxf gxf 3gp webm mpg qt'
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  max_filesize: ''
+  file_extensions: 'mp4 mkv mov avi flv ts tsv tsa mpg mpeg m2p ps mxf lxf gxf 3gp webm qt'
+  max_filesize: 4G
   description_field: 0
   handler: 'default:file'
   handler_settings: {  }
