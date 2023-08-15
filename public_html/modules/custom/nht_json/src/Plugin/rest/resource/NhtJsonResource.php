@@ -158,9 +158,10 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
   private function getClipsByComposerAndClipType($composer, $clip_type) {
     $result = [];
     $query = $this->entityTypeManager->getStorage('media')->getQuery();
-    $query->condition('bundle', 'hosted_video');
-    $query->condition('field_clip_type', $clip_type);
-    $query->condition('field_composer', $composer);
+    $query->condition('bundle', 'hosted_video')
+      ->condition('field_clip_type', $clip_type)
+      ->condition('field_composer', $composer)
+      ->accessCheck(FALSE);
     $result = $query->execute();
     return $result;
   }
