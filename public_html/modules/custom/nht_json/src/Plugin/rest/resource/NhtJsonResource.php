@@ -4,17 +4,12 @@ namespace Drupal\nht_json\Plugin\rest\resource;
 
 use Drupal\Component\Plugin\DependentPluginInterface;
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Routing\BcRoute;
-use Drupal\rest\ModifiedResourceResponse;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\file\Entity\File;
 use Drupal\Core\Cache\CacheableMetadata;
 
 /**
@@ -129,7 +124,6 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
   private function buildJSON() {
     $subdomain = $this->configFactory->get('nht_json.settings')->get('customer_subdomain');
     $result = [];
-    $getID3 = new \getID3();
     $composers = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('composer');
     $clip_types = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('clip_type');
     foreach ($composers as $composer) {
@@ -141,13 +135,12 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
               $clip_object = $this->entityTypeManager->getStorage('media')->load($clip);
               $video_media = $clip_object->get('field_media_hosted_video')->first();
               $video_id = $video_media->getValue()['cloudflareStreamVideoID'];
-//              $fid = $video_media->getValue()['target_id'];
-//              $file = File::load($fid)->getFileUri();
-//              $file_info = $getID3->analyze($file);
+              $runtime_string = $clip_object->get('field_runtime_string')->first()->getValue()["value"];
+              $runtime_float = $clip_object->get('field_runtime_float')->first()->getValue()["value"];
               $result[$composer->tid][$clip_type->name][$clip]['title'] = $clip_object->getName();
               $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $video_id . '/manifest/video.mpd';
-//              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = isset($file_info['playtime_string']) ? $file_info['playtime_string'] : 0;
-//              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = isset($file_info['playtime_seconds']) ? $file_info['playtime_seconds'] : 0;
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = $runtime_string ?: 0;
+              $result[$composer->tid][$clip_type->name][$clip]['runtime_float'] = $runtime_float ?: 0;
             }
           }
       }

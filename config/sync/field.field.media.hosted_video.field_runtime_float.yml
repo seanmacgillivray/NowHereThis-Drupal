@@ -1,0 +1,19 @@
+uuid: 5c9bc60c-a361-41d8-a9f7-c10ca70acf74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_runtime_float
+    - media.type.hosted_video
+id: media.hosted_video.field_runtime_float
+field_name: field_runtime_float
+entity_type: media
+bundle: hosted_video
+label: 'Runtime Float'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

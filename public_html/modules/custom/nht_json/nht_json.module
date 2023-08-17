@@ -1,5 +1,10 @@
 <?php
 
+
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Component\Serialization\Json;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 /**
  * @file
  * Primary module hooks for nht-json module.
@@ -10,14 +15,22 @@
  */
 
 /**
- * Clears the JSON feed cache when Hosted Videos are saved.
+ * Clears the JSON feed cache when Hosted Videos are saved, and use the Cloudflare API to get and set the duration.
  *
  * @param $entity
  * @return void
  */
-function nht_json_media_update($entity) {
+function nht_json_media_presave($entity) {
   if ($entity->bundle() === 'hosted_video') {
     \Drupal::service('cache_tags.invalidator')->invalidateTags(['nht-json-feed']);
+    $video_media = $entity->get('field_media_hosted_video')->first();
+    $video_id = $video_media->getValue()['cloudflareStreamVideoID'];
+    $video_info = _get_single_video_info($video_id)["result"];
+    $runtime_string = round((float)$video_info["duration"]);
+    $runtime_string = gmdate('H:i:s', $runtime_string);
+    $runtime_float = $video_info["duration"];
+    $entity->set('field_runtime_string', $runtime_string);
+    $entity->set('field_runtime_float', $runtime_float);
   }
 }
 
@@ -42,5 +55,51 @@ function nht_json_media_delete($entity) {
 function nht_json_media_create($entity) {
   if ($entity->bundle() === 'hosted_video') {
     \Drupal::service('cache_tags.invalidator')->invalidateTags(['nht-json-feed']);
+  }
+}
+
+
+/**
+ * A function to get info for a single video from the Cloudflare API.
+ *
+ * @param string $identifier
+ *
+ * @return array
+ */
+function _get_single_video_info(string $identifier) {
+  // Get the Cloudflare config
+  $config =  \Drupal::config('cloudflare_stream.settings');
+  $api_key = $config->get('api_key');
+  $email = $config->get('email');
+  $account_id = $config->get('account_id');
+  $api_url = "https://api.cloudflare.com/client/v4/accounts/{$account_id}/stream/$identifier";
+  $headers = [
+    'X-Auth-Email' => $email,
+    'X-Auth-Key' => $api_key,
+    'Content-Type' => 'application/json'
+  ];
+  // Get a Guzzle client
+  $client = new Client();
+  try {
+    $request = $client->get("{$api_url}", [
+      'headers' => $headers,
+    ]);
+    return Json::decode($request->getBody()->getContents());
+  }
+  catch (GuzzleException $error) {
+    $response = $error->getResponse();
+    // Get the info returned from the remote server.
+    $response_info = Json::decode($response->getBody()->getContents());
+    $message = new FormattableMarkup(
+      '@class (@function): API connection error. Error details are as follows:<pre>@response</pre>',
+      [
+        '@class' => get_class(),
+        '@function' => __FUNCTION__,
+        '@response' => print_r($response_info['errors'], TRUE),
+      ]
+    );
+
+    // Log the error.
+    watchdog_exception('cloudflare_stream', $error, $message);
   }
 }

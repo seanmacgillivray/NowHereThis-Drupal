@@ -1,0 +1,19 @@
+uuid: e3301dcf-9bd4-4602-b00a-915df72f9c45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_runtime_string
+    - media.type.hosted_video
+id: media.hosted_video.field_runtime_string
+field_name: field_runtime_string
+entity_type: media
+bundle: hosted_video
+label: 'Runtime String'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

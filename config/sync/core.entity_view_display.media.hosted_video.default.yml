@@ -6,6 +6,8 @@ dependencies:
     - field.field.media.hosted_video.field_clip_type
     - field.field.media.hosted_video.field_composer
     - field.field.media.hosted_video.field_media_hosted_video
+    - field.field.media.hosted_video.field_runtime_float
+    - field.field.media.hosted_video.field_runtime_string
     - media.type.hosted_video
   module:
     - cloudflare_stream
@@ -44,6 +46,22 @@ content:
       loop: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_runtime_float:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_runtime_string:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
   created: true

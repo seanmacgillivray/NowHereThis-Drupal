@@ -7,6 +7,8 @@ dependencies:
     - field.field.media.hosted_video.field_clip_type
     - field.field.media.hosted_video.field_composer
     - field.field.media.hosted_video.field_media_hosted_video
+    - field.field.media.hosted_video.field_runtime_float
+    - field.field.media.hosted_video.field_runtime_string
     - media.type.hosted_video
   module:
     - cloudflare_stream
@@ -28,6 +30,8 @@ hidden:
   created: true
   field_clip_type: true
   field_composer: true
+  field_runtime_float: true
+  field_runtime_string: true
   name: true
   search_api_excerpt: true
   thumbnail: true

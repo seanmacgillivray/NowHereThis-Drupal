@@ -6,6 +6,8 @@ dependencies:
     - field.field.media.hosted_video.field_clip_type
     - field.field.media.hosted_video.field_composer
     - field.field.media.hosted_video.field_media_hosted_video
+    - field.field.media.hosted_video.field_runtime_float
+    - field.field.media.hosted_video.field_runtime_string
     - media.type.hosted_video
   module:
     - cloudflare_stream
@@ -91,6 +93,22 @@ content:
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_runtime_float:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_runtime_string:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   name:
     type: string_textfield

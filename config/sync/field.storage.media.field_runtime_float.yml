@@ -1,0 +1,21 @@
+uuid: 9eada3a4-b68c-48e6-a4db-b8e4cc82b92c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_runtime_float
+field_name: field_runtime_float
+entity_type: media
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
