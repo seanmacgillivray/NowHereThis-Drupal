@@ -91,9 +91,8 @@ function _get_single_video_info(string $identifier) {
     // Get the info returned from the remote server.
     $response_info = Json::decode($response->getBody()->getContents());
     $message = new FormattableMarkup(
-      '@class (@function): API connection error. Error details are as follows:<pre>@response</pre>',
+      '(@function): API connection error. Error details are as follows:<pre>@response</pre>',
       [
-        '@class' => get_class(),
         '@function' => __FUNCTION__,
         '@response' => print_r($response_info['errors'], TRUE),
       ]

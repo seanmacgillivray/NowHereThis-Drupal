@@ -135,8 +135,8 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
               $clip_object = $this->entityTypeManager->getStorage('media')->load($clip);
               $video_media = $clip_object->get('field_media_hosted_video')->first();
               $video_id = $video_media->getValue()['cloudflareStreamVideoID'];
-              $runtime_string = $clip_object->get('field_runtime_string')->first()->getValue()["value"];
-              $runtime_float = $clip_object->get('field_runtime_float')->first()->getValue()["value"];
+              $runtime_string = $clip_object->get('field_runtime_string')->first() ? $clip_object->get('field_runtime_string')->first()->getValue()["value"] : "00:00:00";
+              $runtime_float = $clip_object->get('field_runtime_float')->first() ? $clip_object->get('field_runtime_float')->first()->getValue()["value"] : "0";
               $result[$composer->tid][$clip_type->name][$clip]['title'] = $clip_object->getName();
               $result[$composer->tid][$clip_type->name][$clip]['url'] = 'https://' . $subdomain . '/' . $video_id . '/manifest/video.mpd';
               $result[$composer->tid][$clip_type->name][$clip]['runtime_string'] = $runtime_string ?: 0;
