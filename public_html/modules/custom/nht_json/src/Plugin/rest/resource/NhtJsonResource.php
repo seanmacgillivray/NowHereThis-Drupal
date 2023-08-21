@@ -110,7 +110,11 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
    */
   public function get() {
     $result = $this->buildJSON();
-    $response = new ResourceResponse(json_encode($result));
+    $headers = [
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Methods' => 'GET'
+    ];
+    $response = new ResourceResponse(json_encode($result), 200, $headers);
     $response->addCacheableDependency(CacheableMetadata::createFromRenderArray([
       '#cache' => [
         'tags' => [
