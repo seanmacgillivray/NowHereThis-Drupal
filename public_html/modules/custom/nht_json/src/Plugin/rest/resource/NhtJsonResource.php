@@ -158,6 +158,7 @@ class NhtJsonResource extends ResourceBase implements DependentPluginInterface {
     $query->condition('bundle', 'hosted_video')
       ->condition('field_clip_type', $clip_type)
       ->condition('field_composer', $composer)
+      ->condition('status', 1)
       ->accessCheck(FALSE);
     $result = $query->execute();
     return $result;
