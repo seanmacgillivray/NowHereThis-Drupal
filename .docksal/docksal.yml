@@ -1,1 +1,4 @@
 version: "3"
+services:
+  cli:
+    image: docksal/cli:php8.2-3.5
