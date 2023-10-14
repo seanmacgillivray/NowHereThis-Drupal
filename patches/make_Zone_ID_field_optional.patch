@@ -1,0 +1,18 @@
+Subject: [PATCH] - make Zone ID field optional
+---
+Index: src/Form/CloudflareStreamSettings.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Form/CloudflareStreamSettings.php b/src/Form/CloudflareStreamSettings.php
+--- a/src/Form/CloudflareStreamSettings.php	(revision a295719e7e2b2808c063883e369aa17d36d18334)
++++ b/src/Form/CloudflareStreamSettings.php	(date 1697314690305)
+@@ -71,7 +71,6 @@
+       '#type' => 'textfield',
+       '#title' => $this->t('Zone ID'),
+       '#default_value' => $zone_id,
+-      '#required' => TRUE,
+     ];
+     $form['replace_source_files'] = [
+       '#type' => 'checkbox',

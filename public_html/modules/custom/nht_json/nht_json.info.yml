@@ -3,7 +3,7 @@ type: module
 description: Now Here This JSON feed
 package: Custom
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - cloudflare_stream
   - media
