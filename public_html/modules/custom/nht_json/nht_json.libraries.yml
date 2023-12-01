@@ -5,3 +5,9 @@ nht_json:
     theme:
       'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css': { type: external }
       '/libraries/NowHereThis.js/public/index.css': {}
+      '/libraries/NowHereThis.js/dist/app_styles.css:': {}
+  dependencies:
+    - nht_json/fontawesome
+fontawesome:
+  js:
+    https://kit.fontawesome.com/f0c0cd18db.js: { attributes: { crossorigin: anonymous } }
