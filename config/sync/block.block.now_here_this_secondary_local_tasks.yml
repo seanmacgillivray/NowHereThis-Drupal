@@ -8,8 +8,8 @@ _core:
   default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
 id: now_here_this_secondary_local_tasks
 theme: now_here_this
-region: highlighted
-weight: -2
+region: footer
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:
